@@ -1,0 +1,158 @@
+/* RESET BÁSICO */
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.jogo-container
+{
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* ESTILOS DAS OPÇÕES */
+#pedrau, #papelu, #tesourau
+{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#imagem
+{
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin: 20px auto;
+    display: block;
+    background-color: #ecf0f1;
+    border-radius: 12px;
+    padding: 15px;
+}
+
+/* MENSAGEM */
+#mensagem
+{
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 25px 0;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+
+/* BORDAS E ESTADOS */
+.bordaInicial
+{
+    border: 3px dashed #bdc3c7;
+    opacity: 0.9;
+    transform: scale(0.95);
+}
+
+.borda
+{
+    border: 4px solid #3498db;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+/* ANIMAÇÕES */
+@keyframes pulsar
+{
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+@keyframes balançar
+{
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
+}
+
+@keyframes aparecer
+{
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.feedback-vitoria
+{
+    animation: pulsar 0.6s ease 1, aparecer 0.4s ease;
+    border-color: #2ecc71 !important;
+    background-color: rgba(46, 204, 113, 0.1);
+    box-shadow: 0 5px 20px rgba(46, 204, 113, 0.3);
+}
+
+.feedback-derrota
+{
+    animation: balançar 0.5s ease 1, aparecer 0.4s ease;
+    border-color: #e74c3c !important;
+    background-color: rgba(231, 76, 60, 0.1);
+    box-shadow: 0 5px 20px rgba(231, 76, 60, 0.3);
+}
+
+.feedback-empate
+{
+    animation: pulsar 0.6s ease 1, aparecer 0.4s ease;
+    border-color: #f39c12 !important;
+    background-color: rgba(243, 156, 18, 0.1);
+    box-shadow: 0 5px 20px rgba(243, 156, 18, 0.3);
+}
+
+/* EFEITOS HOVER */
+#pedrau:hover, #papelu:hover, #tesourau:hover
+{
+    transform: scale(1.05);
+    background-color: #f1f1f1;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 600px)
+{
+    .jogo-container
+    {
+        padding: 20px 10px;
+    }
+    
+    #pedrau, #papelu, #tesourau
+    {
+        width: 80px;
+        height: 80px;
+        margin: 10px;
+    }
+    
+    #imagem
+    {
+        width: 100px;
+        height: 100px;
+    }
+}
